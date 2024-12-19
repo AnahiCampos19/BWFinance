@@ -1,0 +1,69 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+.footer {
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  text-align: center;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column; /* Alinea contenido del footer */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  width: 100%;
+  margin-top: auto;
+  height: 6rem; 
+  position: relative; 
+   z-index: 1;
+  
+}
+.footer p {
+  margin: 0.5rem 0;
+}
+
+.footer a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+}
+
+.social-icons a:hover {
+  color: var(--clr-accent);
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Alinea el footer en columna en móviles */
+    padding: 1.5rem 0; /* Mayor espacio en dispositivos pequeños */
+  }
+
+  .footer p {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto */
+  }
+
+  .social-icons a {
+    font-size: 1.2rem; /* Reduce el tamaño de los iconos */
+  }
+}
+
+  

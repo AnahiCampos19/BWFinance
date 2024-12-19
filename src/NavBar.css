@@ -1,0 +1,98 @@
+/* HEADER Y NAVBAR */
+header {
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  background-color: var(--clr-primary); /* Color del fondo */
+  color: var(--clr-secondary); /* Color del texto */
+  position: relative;
+  z-index: 10;
+}
+nav{
+  width:100vh;
+}
+.navbar {
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-primary);
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  height: 50px; /* Tamaño del logo */
+  max-width: 100%; /* Evita que el logo cause desbordamiento */
+}
+.custom-svg .st0 { fill: #1E88E5 !important; }
+.custom-svg .st1 { fill: #34D399 !important; }
+.custom-svg .st2 { fill: #ECEFF1 !important; }
+
+.menu {
+  display: flex;
+  gap: 1rem; /* Espacio entre elementos */
+  align-items: center;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none; /* Elimina los estilos de lista */
+  padding: 0; /* Elimina padding */
+  margin: 0; /* Elimina margen */
+}
+
+.menu li a {
+  text-decoration: none;
+  color: var(--clr-secondary);
+  padding: 0.5rem 1rem; /* Espacio interno para cada enlace */
+  display: block; /* Garantiza el área clickeable */
+}
+
+.menu li a:hover {
+  color: var(--clr-accent);
+}
+
+.btn-menu {
+  background: none;
+  border: none;
+  color: var(--clr-secondary);
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none; /* Ocultar en desktop */
+}
+
+/* MENÚ RESPONSIVO */
+@media (max-width: 768px) {
+  .btn-menu {
+    display: block; /* Muestra el botón en móviles */
+  }
+
+  .menu {
+    display: none; /* Oculta el menú */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Justo debajo del header */
+    left: 0; /* Alineado al borde izquierdo */
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: var(--clr-primary);
+    z-index: 999;
+    border-top: 1px solid var(--clr-secondary);
+  }
+  .menu ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+  .menu-abierto {
+    display: flex; /* Muestra el menú al activarlo */
+  }
+
+  .menu li {
+    padding: 1rem 0; /* Espaciado interno */
+    text-align: center; /* Centra los elementos */
+  }
+}

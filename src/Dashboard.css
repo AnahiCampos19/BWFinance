@@ -1,0 +1,175 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column; /* Coloca las secciones en columna */
+    gap: 2rem; /* Espacio entre secciones */
+    padding: 2rem; /* Espaciado general */
+    margin: 0 auto; /* Centra el contenedor */
+    max-width: 1200px; /* Define un ancho máximo */
+    min-height: 100%; /* Garantiza que llene el espacio del contenedor */
+}
+
+.dashboard-container h1 {
+    text-align: center; /* Centra el título */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--clr-primary, #333); /* Define un color base */
+}
+
+.dashboard-section {
+    background-color: #f9f9f9; /* Fondo claro para cada sección */
+    padding: 1.5rem;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-5px); /* Efecto ligero al pasar el mouse */
+}
+
+.dashboard-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--clr-primary, #333);
+    text-align: center;
+}
+.recharts-wrapper {
+    display: grid; /* Mantiene el grid */
+    place-items: center; /* Centra el elemento horizontal y verticalmente */
+    max-width: 100%; /* Evita que se desborde del main */
+    overflow: hidden; /* Recorta cualquier desbordamiento */
+    margin: 0 auto; /* Centra el elemento horizontalmente si se usa un ancho definido */
+}
+
+.recharts-tooltip-wrapper {
+    position: absolute;
+    z-index: 10;
+    max-width: 95%; /* Limita el ancho de la ventana emergente */
+    white-space: normal; /* Asegura que el texto no cause desbordamiento */
+    overflow-wrap: break-word; /* Rompe palabras largas */
+}
+/* Estilos generales para los botones */
+button {
+    padding: 0; /* Ajusta el padding */
+    font-size: 0.75rem; /* Tamaño de texto estándar */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--clr-accent, #4CAF50);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto;
+    min-width: 70px;
+    margin: 0 !important;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Ajustes específicos para botones dentro de Metas Activas */
+.metas-activas button {
+    width: 100%; /* Botones se ajustan al ancho del contenedor */
+    margin: 0.5rem 0; /* Espacio entre botones */
+}
+.metas-activas {
+    display: flex; /* Activa Flexbox */
+    flex-wrap: wrap; /* Permite que los botones se acomoden en filas */
+    justify-content: center; /* Centra los botones */
+    gap: 0.5rem; /* Espacio entre botones */
+    margin: 1rem 0; /* Margen exterior */
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+
+/* Media Query para pantallas medianas */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem; /* Reduce el espaciado general */
+        gap: 1.5rem; /* Espacio entre secciones reducido */
+    }
+
+    .dashboard-section {
+        padding: 0.75rem; /* Reduce el padding de cada sección */
+    }
+
+    .dashboard-container h1 {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    .dashboard-section h2 {
+        font-size: 1.1rem; /* Reduce el tamaño de los subtítulos */
+    }
+    .recharts-wrapper {
+        padding: 1rem; /* Agrega espacio interno en pantallas pequeñas */
+    }
+    .recharts-tooltip-wrapper {
+        font-size: 0.9rem; /* Ajusta el tamaño del texto en la ventana emergente */
+        max-width: 90%;
+    }
+    .metas-activas button {
+        font-size: 0.02rem; /* Reduce el tamaño del texto */
+        padding: 0; /* Reduce el padding */
+    }
+    button {
+        padding: 0.3rem 0.6rem; /* Reduce aún más el padding */
+        font-size: 0.75rem; /* Fuente más pequeña */
+        min-width: 70px; /* Ancho mínimo menor */
+    }
+
+    .metas-activas {
+        gap: 0.25rem; /* Reduce el espacio entre botones */
+    }
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 480px) {
+    .dashboard-container h1 {
+        font-size: 1.5rem; /* Título más pequeño */
+    }
+
+    .dashboard-section {
+        padding: 0.75rem; /* Ajusta el espaciado */
+    }
+
+    .dashboard-section h2 {
+        font-size: 1.1rem; /* Subtítulo más pequeño */
+    }
+    .metas-activas button {
+        font-size: 0.02rem; /* Texto más pequeño en móviles */
+        padding: 0; /* Padding más compacto */
+    }
+    button {
+        padding: 0.2rem 0.5rem; /* Padding mínimo */
+        font-size: 0.7rem; /* Fuente muy pequeña para móviles */
+        min-width: 60px; /* Ajusta el ancho mínimo */
+    }
+}

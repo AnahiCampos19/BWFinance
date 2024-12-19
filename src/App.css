@@ -1,0 +1,295 @@
+
+/* Simplifica la forma de aplicar tamaños */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+/* Se quita el espaciado predeterminado */
+* {
+margin: 0;
+padding: 0;
+}
+
+
+/* Mejorar la puntuación en los navegadores que lo soporten */
+html {
+color-scheme: dark light;
+hanging-punctuation: first last;
+margin: 0;
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+
+body {
+height: 100%;
+margin: 0;
+display: flex;
+flex-direction: column;
+
+}
+
+main {
+  flex: 1; /* Permite que el contenido principal ocupe todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* imágenes/videos responsive */
+img,
+picture,
+svg,
+video {
+display: block;
+max-width: 50%;
+}
+
+/* Mejora los títulos en los navegadores que lo soporten */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+text-wrap: balance;
+}
+
+
+p,
+li {
+max-width: 65ch;
+text-wrap: pretty;
+}
+
+/********************************************/
+
+/* General container */
+.register-container {
+max-width: 400px;
+margin: 0 auto;
+padding: 2rem;
+text-align: center;
+font-family: Arial, sans-serif;
+}
+
+
+
+:root {
+--clr-primary: #121212 !important;
+--clr-secondary: #f2f2f2 !important;
+--clr-accent: green !important;
+}
+html {
+scroll-behavior: smooth;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+padding: 0.5rem;
+grid-area: header;
+border-bottom: 0.5rem solid var(--clr-secondary);
+display: flex;
+align-items: center;
+justify-content: space-between;/*aqui esta el error que necesitabamos corregir ahora en reponsive se desborda*/
+width: 100%;
+}
+
+/* Title */
+h1 {
+font-size: 2rem;
+color: #2a2a2a;
+}
+
+/* Form and input fields */
+.register-form input {
+width: 100%;
+padding: 0.75rem;
+margin: 0.5rem 0;
+border-radius: 5px;
+border: 1px solid #ccc;
+font-size: 1rem;
+}
+
+.submit-btn {
+width: 100%;
+padding: 0.75rem;
+background-color: #d3d3d3;
+color: #fff;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+cursor: pointer;
+}
+
+.submit-btn:hover {
+background-color: #bfbfbf;
+}
+
+/* Social login section */
+.social-login {
+margin-top: 1rem;
+}
+
+.social-btn {
+width: 100%;
+padding: 0.75rem;
+margin: 0.5rem 0;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+cursor: pointer;
+}
+
+.facebook-btn {
+background-color: #3b5998;
+color: white;
+}
+
+.google-btn {
+background-color: #db4437;
+color: white;
+}
+
+.apple-btn {
+background-color: #333;
+color: white;
+}
+
+
+/********************************************/
+/*************OPTIONS  CARDS*****************/
+/********************************************/
+
+.home-container {
+text-align: center;
+padding: 20px;
+}
+
+.home-options {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin-top: 2rem;
+gap: 15rem;
+}
+
+.option-card {
+border: 1px solid #ccc;
+padding: 1.5rem;
+width: 300px;
+max-width: 100%;
+border-radius: 10px;
+text-align: center;
+background-color:#f9f9f9 ;
+}
+
+.option-card h3 {
+margin-bottom: 15px;
+}
+
+.option-card p {
+margin-bottom: 20px;
+}
+
+.btn-primary {
+background-color: #007bff;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+}
+
+.dashboard-container {
+padding: 20px;
+}
+
+section {
+margin-bottom: 40px;
+}
+
+.option-card, .social-btn {
+margin: 10px 0;
+padding: 15px;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 8px;
+}
+
+h1, h3 {
+text-align: center;
+}
+
+form {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+max-width: 400px;
+margin: 20px auto;
+}
+
+li {
+display: flex;
+justify-content: space-between;
+padding: 10px;
+border-bottom: 1px solid #ddd;
+}
+
+button {
+padding: 8px 12px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin: 0.5em !important;
+}
+
+button:hover {
+background-color: #45a049;
+}
+
+
+.dashboard-container {
+padding: 20px;
+text-align: center;
+}
+
+/* Secciones dentro del Dashboard */
+section {
+margin-bottom: 40px; /* Espacio entre secciones */
+}
+
+h1, h2 {
+color: #333; /* Color de los títulos */
+}
+
+/* Componentes de ResumenGeneral, MetasPresupuestos y AlertasRecomendaciones */
+.summary, .metas, .alerts {
+display: flex;
+flex-direction: column; 
+align-items: center; 
+}
+footer {
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  margin-top: auto; /* Empuja el footer hacia abajo */
+}
