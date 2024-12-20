@@ -34,7 +34,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/transacciones" element={<Transacciones />} />
             <Route path="/tareas-habitos" element={<TareasHabitos />} />
-            <Route path="/eliminacion-datos" element={<EliminacionDatos />} />
+            <Route path="/eliminaciondatos" element={<EliminacionDatos />} />
             <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />
           </Routes>
         </main>

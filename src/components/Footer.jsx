@@ -11,7 +11,8 @@ const Footer = () => {
         <br />
         <a href="/termsofuse">Términos de Uso</a> |{" "}
         <a href="/privacypolicy">Política de Privacidad</a> |{" "}
-        <a href="/precontractualesterms">Términos Precontractuales</a>
+        <a href="/precontractualesterms">Términos Precontractuales</a>|{""}
+        <a href="/eliminaciondatos">Eliminacion de Datos</a>
       </p>
       <div className="social-icons">
         <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
