@@ -9,7 +9,9 @@ const Footer = () => {
       <p>
         © {new Date().getFullYear()} ByteWise. Todos los derechos reservados.
         <br />
-        <a href="/terms">Términos de Uso</a> | <a href="/privacy">Política de Privacidad</a>
+        <a href="/termsofuse">Términos de Uso</a> |{" "}
+        <a href="/privacypolicy">Política de Privacidad</a> |{" "}
+        <a href="/precontractualesterms">Términos Precontractuales</a>
       </p>
       <div className="social-icons">
         <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
@@ -27,4 +29,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 

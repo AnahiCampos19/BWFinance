@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login-lite";
 import GoogleLoginButton from "./GoogleLoginButton"; // Importa el componente
-import FacebookLoginButton from "./FacebookLoginButton";
-import AppleLoginButton from "./AppleLoginButton";
+import SimulatedAppleLoginButton from "./SimulatedAppleLoginButton";
 
 
 function RegisterScreen() {
@@ -69,7 +68,7 @@ function RegisterScreen() {
     const handleGoogleSuccess = (credentialResponse) => {
         console.log("Google Login Success:", credentialResponse);
         alert("Inicio de sesión con Google exitoso");
-        // Aquí puedes enviar el token al backend para validarlo
+        // Aquí enviar el token al backend para validarlo
     };
 
     const handleGoogleFailure = () => {
@@ -79,6 +78,7 @@ function RegisterScreen() {
 
     const handleFacebookResponse = (response) => {
         console.log("Facebook Login Response:", response);
+        alert("Inicio de sesión con Facebook exitoso");
     };
 
     return (
@@ -129,21 +129,22 @@ function RegisterScreen() {
                     fields="name,email,picture"
                     callback={handleFacebookResponse}
                     textButton="Facebook"
-                    cssClass="social-btn facebook-btn"
+                    cssClass="facebook-btn"
                 />
 
                 <GoogleLoginButton
                     onSuccess={handleGoogleSuccess}
                     onFailure={handleGoogleFailure}
                 />
-                <AppleLoginButton />
+                <SimulatedAppleLoginButton />
             </div>
 
             <footer>
                 <p>
-                    Al usar ByteWise, aceptas los <a href="/terms">Términos de uso</a>,
-                    <a href="/privacy">Política de privacidad</a> y
-                    <a href="/precontractual">Términos precontractuales</a> de nuestra
+                    Al usar ByteWise, aceptas los{""}
+                    <a href="/termsofuse">Términos de uso</a>{""},
+                    <a href="/privacypolicy">Política de privacidad</a> {""} y
+                    <a href="/precontractualesterms">Términos precontractuales</a> de nuestra
                     empresa.
                 </p>
             </footer>

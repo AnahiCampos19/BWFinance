@@ -4,7 +4,7 @@ import FacebookLogin from "react-facebook-login-lite";
 const FacebookLoginButton = () => {
     return (
         <FacebookLogin
-            appId="TU_APP_ID_FACEBOOK" // Reemplaza con tu App ID
+            appId="471872155929724" // Reemplaza con tu App ID
             onSuccess={(response) => console.log("Facebook Login Success:", response)}
             onFailure={(error) => console.error("Facebook Login Failed:", error)}
             buttonStyle={{
