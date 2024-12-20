@@ -64,6 +64,14 @@ const EliminacionDatos = () => {
           Transferir sus datos personales e información financiera a autoridades locales o extranjeras
           debidamente facultadas cuando sea requerido por normativas legales.
         </li>
+        <li>
+          Transferir sus datos personales e información financiera a autoridades locales o extranjeras
+          debidamente facultadas cuando sea requerido por normativas legales.
+        </li>
+        <li>
+          Transferir sus datos personales e información financiera a autoridades locales o extranjeras
+          debidamente facultadas cuando sea requerido por normativas legales.
+        </li>
       </ul>
 
       <p>
