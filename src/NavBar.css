@@ -3,15 +3,19 @@ header {
   width: 100%; /* Asegura que ocupe todo el ancho */
   padding: 0.5rem 1rem; /* Espaciado interno */
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   background-color: var(--clr-primary); /* Color del fondo */
   color: var(--clr-secondary); /* Color del texto */
   position: relative;
   z-index: 10;
+  border-bottom: 0.5rem solid var(--clr-secondary);
 }
+
 nav{
   width:100vh;
+  display: flex;
+  justify-content: space-between;
 }
 .navbar {
   width: 100%; /* Asegura que ocupe todo el ancho */

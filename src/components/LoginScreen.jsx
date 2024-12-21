@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login-lite";
-import GoogleLoginButton from "./GoogleLoginButton";
+import GoogleLoginButton from "./GoogleLoginButton"; // Reutilizamos el componente de Google Login
 import SimulatedAppleLoginButton from "./SimulatedAppleLoginButton";
 
-function RegisterScreen() {
+function LoginScreen() {
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
-        confirmPassword: "",
     });
-
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -20,21 +18,11 @@ function RegisterScreen() {
 
     const validate = () => {
         const errors = {};
-
-        if (!formValues.email) {
-            errors.email = "El correo electrónico es obligatorio.";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email)) {
-            errors.email = "Introduce un correo electrónico válido.";
-        }
+        const emailError = validateEmail(formValues.email);
+        if (emailError) errors.email = emailError;
 
         if (!formValues.password) {
             errors.password = "La contraseña es obligatoria.";
-        } else if (formValues.password.length < 6) {
-            errors.password = "La contraseña debe tener al menos 6 caracteres.";
-        }
-
-        if (formValues.confirmPassword !== formValues.password) {
-            errors.confirmPassword = "Las contraseñas no coinciden.";
         }
 
         return errors;
@@ -48,28 +36,25 @@ function RegisterScreen() {
         if (Object.keys(errors).length === 0) {
             setIsSubmitting(true);
             try {
-                const response = await fetch("http://localhost:5000/register", {
+                const response = await fetch("http://localhost:5000/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        email: formValues.email,
-                        password: formValues.password,
-                    }),
+                    body: JSON.stringify(formValues),
                 });
 
                 if (response.ok) {
-                    alert("Registro exitoso");
-                    setFormValues({ email: "", password: "", confirmPassword: "" });
-                } else if (response.status === 409) {
+                    alert("Inicio de sesión exitoso");
+                    setFormValues({ email: "", password: "" });
+                } else if (response.status === 401) {
                     setFormErrors({
-                        email: "El correo electrónico ya está registrado.",
+                        email: "Correo o contraseña incorrectos.",
                     });
                 } else {
-                    alert("Error al registrar usuario");
+                    alert("Error al iniciar sesión. Intenta nuevamente.");
                 }
             } catch (error) {
                 console.error("Error:", error);
-                alert("Error al conectar con el servidor.");
+                alert("No se pudo conectar con el servidor.");
             } finally {
                 setIsSubmitting(false);
             }
@@ -79,6 +64,7 @@ function RegisterScreen() {
     const handleGoogleSuccess = (credentialResponse) => {
         console.log("Google Login Success:", credentialResponse);
         alert("Inicio de sesión con Google exitoso");
+        // Aquí enviar el token al backend para validarlo
     };
 
     const handleGoogleFailure = () => {
@@ -92,13 +78,13 @@ function RegisterScreen() {
     };
 
     return (
-        <div className="register-container">
-            <h3>Regístrate en ByteWise</h3>
-            <form className="register-form" onSubmit={handleSubmit}>
+        <div className="login-container">
+            <h3>Inicia sesión en ByteWise</h3>
+            <form className="login-form" onSubmit={handleSubmit}>
                 <input
                     type="email"
                     name="email"
-                    placeholder="Correo Electrónico"
+                    placeholder="Correo electrónico"
                     value={formValues.email}
                     onChange={handleChange}
                 />
@@ -113,22 +99,19 @@ function RegisterScreen() {
                 />
                 {formErrors.password && <p className="error">{formErrors.password}</p>}
 
-                <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirmar Contraseña"
-                    value={formValues.confirmPassword}
-                    onChange={handleChange}
-                />
-                {formErrors.confirmPassword && <p className="error">{formErrors.confirmPassword}</p>}
-
                 <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                    {isSubmitting ? "Registrando..." : "Registrarse"}
+                    {isSubmitting ? "Iniciando..." : "Iniciar sesión"}
                 </button>
             </form>
 
+            <p className="forgot-password">
+                <a href="/forgot-password" className="link">
+                    ¿Olvidaste tu contraseña? Recuperarla aquí
+                </a>
+            </p>
+
             <div className="social-login">
-                <p>...o regístrate con</p>
+                <p>...o a través de</p>
                 <FacebookLogin
                     appId="1119510899398623"
                     autoLoad={false}
@@ -137,6 +120,7 @@ function RegisterScreen() {
                     textButton="Facebook"
                     cssClass="facebook-btn"
                 />
+
                 <GoogleLoginButton
                     onSuccess={handleGoogleSuccess}
                     onFailure={handleGoogleFailure}
@@ -146,11 +130,15 @@ function RegisterScreen() {
 
             <footer>
                 <p>
-                    ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
+                    Al usar ByteWise, aceptas los{""}
+                    <a href="/termsofuse">Términos de uso</a>{""},
+                    <a href="/privacypolicy">Política de privacidad</a> {""} y
+                    <a href="/precontractualesterms">Términos precontractuales</a> de nuestra
+                    empresa.
                 </p>
             </footer>
         </div>
     );
 }
 
-export default RegisterScreen;
+export default LoginScreen;
